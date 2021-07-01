@@ -1,51 +1,57 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class Job{
+public class Job extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private int id;
+//    @Id
+//    @GeneratedValue
+//    private int id;
 
-    private String name;
+//    private String name;
 
-    private String employer;
-    private String skills;
+    @ManyToOne
+    private Employer employer;
+
+    @ManyToMany
+    private List<Skill> skills;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer employer, List<Skill> skills) {
         super();
-        this.employer = anEmployer;
-        this.skills = someSkills;
+        this.employer = employer;
+        this.skills = skills;
     }
 
     // Getters and setters.
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
-    public String getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
+
+
 }
