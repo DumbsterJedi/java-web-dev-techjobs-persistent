@@ -11,10 +11,10 @@
     <p th:text="${'Name: ' + employer.name}"></p>
     <p th:text="${'Location: ' + employer.location}"></p>
     <p>
-    <span><a th:href="@{/list/jobs(column=employer,value=${employer.name})}" >All jobs from <span th:text="${employer.name}"></span></a></span>
+    <span><a th:href="@{/list/jobs(column=employer,value=${employer.name})}" >All jobs from <span th:text="${employer.name}"></span>:</a></span>
     <ul>
         <li th:each="job : ${employer.jobs}">
-            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a> <!--this doesn't work-->
+            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
         </li>
 
 </ul>

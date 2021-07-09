@@ -12,7 +12,7 @@ public class Skill extends AbstractEntity {
     @NotBlank(message = "I assume you want your employees to know at least something.")
     private String description;
 
-    @ManyToMany(mappedBy = "skills")
+        @ManyToMany(mappedBy = "skills")
     private List<Job> jobs;
 
     public Skill(String description) {
